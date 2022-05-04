@@ -11,11 +11,11 @@ Prepare:
     - [hostname].ca1cfd03.nip.io
 - Edit file (stepx...) change namespace, hostname with your information of cluster
 
-step:
-%kubectl create -f step1-ns.yml
-%kubectl apply -f step2-cert-manager.yml
-%kubectl apply -f step3-uptime-app.yml
-%kubectl apply -f step4-ingress-prod.yml
+- Deployment step:
+    - kubectl create -f step1-ns.yml
+    - kubectl apply -f step2-cert-manager.yml
+    - kubectl apply -f step3-uptime-app.yml
+    - kubectl apply -f step4-ingress-prod.yml
 
 Remark:
 - issue-prod-cert.yml and issue-stag-cert.yml is template.
