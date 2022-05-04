@@ -1,0 +1,28 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+  # recommnet test with staging before prodution certificate
+    cert-manager.io/issuer: letsencrypt-staging
+#    cert-manager.io/issuer: letsencrypt-prod
+  name: ingress-otj101
+  namespace: uptime-otj101
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: otj101.3.ipv9.xyz
+    http:
+      paths:
+      - backend:
+          service:
+            name: otj101
+            port:
+              number: 3001
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - otj101.3.ipv9.xyz
+    secretName: otj101-3-ipv9-xyz-staging-tls
+#   secretName: otj101-3-ipv9-xyz-tls

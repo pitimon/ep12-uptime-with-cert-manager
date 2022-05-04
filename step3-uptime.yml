@@ -1,0 +1,77 @@
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-otj101
+  namespace: uptime-otj101
+spec:
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: longhorn
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: otj101
+  namespace: uptime-otj101
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      workload.user.cattle.io/workloadselector: apps.deployment-uptime-otj101
+  template:
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-uptime-otj101
+    spec:
+      containers:
+      - image: louislam/uptime-kuma
+        imagePullPolicy: Always
+        name: container-0
+        ports:
+        - containerPort: 3001
+          name: otj101
+          protocol: TCP
+        resources:
+          requests:
+            cpu: 50m
+            memory: 16Mi
+          limits:
+            cpu: 400m
+            memory: 128Mi
+        volumeMounts:
+        - mountPath: /app/data
+          name: otj101
+        - name: tz-config
+          mountPath: /etc/localtime
+      restartPolicy: Always
+      volumes:
+      - name: otj101
+        persistentVolumeClaim:
+          claimName: pvc-otj101
+      - name: tz-config
+        hostPath:
+           path: /usr/share/zoneinfo/Asia/Bangkok
+           type: File
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: otj101
+  namespace: uptime-otj101
+spec:
+  internalTrafficPolicy: Cluster
+  ports:
+  - name: otj101
+    port: 3001
+    protocol: TCP
+    targetPort: 3001
+  selector:
+    workload.user.cattle.io/workloadselector: apps.deployment-uptime-otj101
+  type: ClusterIP
+
