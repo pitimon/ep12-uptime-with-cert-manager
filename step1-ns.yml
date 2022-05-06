@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: uptime-otj101
-  annotations:
-  # get projectId from rancher web console
-   field.cattle.io/projectId: c-m-7l8v45x2:p-z5t58
