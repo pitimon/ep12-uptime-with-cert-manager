@@ -22,3 +22,9 @@ Remark:
 https://cert-manager.io/docs/
 - uptime kuma
 https://github.com/louislam/uptime-kuma
+
+
+
+# อ่านเล่นๆ
+- https://dev.to/freakynit/kubernetes-handnotes-2bm9
+- https://kube.academy/courses

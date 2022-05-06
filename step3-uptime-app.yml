@@ -29,8 +29,8 @@ spec:
         workload.user.cattle.io/workloadselector: apps.deployment-uptime-otj101
     spec:
       containers:
-      - image: louislam/uptime-kuma
-        imagePullPolicy: Always
+      - image: louislam/uptime-kuma:1.15.0
+        imagePullPolicy: IfNotPresent
         name: container-0
         ports:
         - containerPort: 3001
@@ -41,8 +41,8 @@ spec:
             cpu: 50m
             memory: 16Mi
           limits:
-            cpu: 400m
-            memory: 128Mi
+            cpu: 600m
+            memory: 256Mi
         volumeMounts:
         - mountPath: /app/data
           name: otj101

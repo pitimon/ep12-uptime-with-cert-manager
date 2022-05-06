@@ -24,8 +24,8 @@ spec:
 apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
-  name: letsencrypt-otj101
-  namespace: uptime-sutiwat
+  name: letsencrypt-prod
+  namespace: uptime-otj101
 spec:
   acme:
     # The ACME server URL

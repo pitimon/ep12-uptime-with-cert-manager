@@ -25,4 +25,4 @@ spec:
   - hosts:
     - otj101.3.ipv9.xyz
     secretName: otj101-3-ipv9-xyz-staging-tls
-#   secretName: otj101-3-ipv9-xyz-tls
+#    secretName: otj101-3-ipv9-xyz-tls
