@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: uptime-${APPNAME}
-  annotations:
-  # get projectId from rancher web console
-   field.cattle.io/projectId: ${PROJECTID}
