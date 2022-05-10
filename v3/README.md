@@ -13,6 +13,7 @@ export PROJECTID="c-m-7l8v45x2:p-z5t58"
 export MYEMAIL="ip@en.rmutt.ac.th"
 export CERTSTATE="staging"
 envsubst < step1-namespace.yml | kubectl create -f -
+
 envsubst < step2-uptime-app.yml | kubectl apply -f - 
 kubectl rollout status -n uptime-$APPNAME deployment $APPNAME
 ```
