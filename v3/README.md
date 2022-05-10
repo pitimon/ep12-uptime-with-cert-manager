@@ -1,10 +1,10 @@
 ## Variable environments
 | Plugin | README |
 | ------ | ------ |
-| APPNAME | application name and [hostname].3.ipv9.xyz |
-| PROJECTID | get projectId from rancher web mgmt |
-| MYEMAIL | sign Let's Encrypt |
-| CERSTATE | staging/prod |
+| APPNAME | Application_name and [hostname].3.ipv9.xyz |
+| PROJECTID | Get projectId from rancher web mgmt |
+| MYEMAIL | Sign Let's Encrypt |
+| CERTSTATE | Select staging/prod |
 
 ## Deployment app
 ```sh
