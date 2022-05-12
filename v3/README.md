@@ -1,3 +1,16 @@
+Uptime kuma deployment v3:
+
+> For POP22 cluster member
+> Ubuntu/Debian kubuctl client
+> [hostname].3.ipv9.xyz via external layer 4 loadbalance
+ 
+## Pre-Deployment
+Ubuntu/Debian requires [gettext](https://zoomadmin.com/HowToInstall/UbuntuPackage/gettext) to run
+```sh
+sudo apt-get update
+sudo apt-get install -y gettext
+```
+
 ## Variable environments
 | Plugin | README |
 | ------ | ------ |
