@@ -1,6 +1,6 @@
-Uptime kuma deployment v3:
+Uptime kuma deployment v3 for:
 
-- For POP22 cluster member
+- Cluster POP22's member
 - Ubuntu/Debian kubuctl client
 - [hostname].3.ipv9.xyz via external layer 4 loadbalance
 
