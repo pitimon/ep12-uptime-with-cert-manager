@@ -1,5 +1,5 @@
 # ep12-uptime-with-cert-manager
- pop22 usercase
+ pop22 usecase
 
 Prepare: 
 - DNS map host.domain (A record) to Layer4 loadbalance
