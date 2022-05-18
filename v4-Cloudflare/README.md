@@ -15,10 +15,8 @@ sudo apt-get install -y gettext
 ## Variable environments
 | Plugin | README |
 | ------ | ------ |
-| APPNAME | Application_name and [hostname].3.ipv9.xyz |
+| APPNAME | Application_name and [hostname].ipv9.me |
 | PROJECTID | Get projectId from rancher web mgmt |
-| MYEMAIL | Sign Let's Encrypt |
-| CERTSTATE | Select staging/prod |
 | CLOUDFLARED_TOKEN | Create Cloudflare Zero Trust tunnel |
 
 ## Deployment app
