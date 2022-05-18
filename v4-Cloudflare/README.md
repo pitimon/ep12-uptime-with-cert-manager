@@ -30,12 +30,14 @@ export CLOUDFLARED_TOKEN="[CreateTunnelZeroTrust before]"
 
 ```sh
 envsubst < step1-namespace.yml | kubectl create -f -
+```
 
+```sh
 envsubst < step2-uptime-app.yml | kubectl apply -f - 
 kubectl rollout status -n uptime-$APPNAME deployment $APPNAME
 ```
-At cloudflare zero trust mgmt:
-- update Access>Tunnels>[xxx]>Public Hostname>Service HTTP {APPNAME}:3001
+>> At cloudflare zero trust mgmt:
+    - update Access>Tunnels>[xxx]>Public Hostname>Service HTTP {APPNAME}:3001
 
 ## Remove namespace all
 export APPNAME="[chose APP name]"
