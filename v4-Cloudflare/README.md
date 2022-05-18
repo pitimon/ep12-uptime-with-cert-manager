@@ -24,9 +24,11 @@ sudo apt-get install -y gettext
 ## Deployment app
 edit before use:
 
+```sh
 export APPNAME="[chose APP name]"
 export PROJECTID="[Your ProjectId from Rancher web]"
 export CLOUDFLARED_TOKEN="[CreateTunnelZeroTrust before]"
+```
 
 ```sh
 envsubst < step1-namespace.yml | kubectl create -f -
