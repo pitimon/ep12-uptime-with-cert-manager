@@ -2,10 +2,11 @@ Uptime kuma deployment v3 for:
 
 - Cluster POP22's member
 - Ubuntu/Debian kubuctl client
-- [hostname].3.ipv9.xyz via external layer 4 loadbalance
+- [APPNAME].ipv9.me via Cloudflare Zero Trust.
 
 ## Pre-Deployment
 Ubuntu/Debian requires [gettext](https://zoomadmin.com/HowToInstall/UbuntuPackage/gettext) to run
+
 ```sh
 sudo apt-get update
 sudo apt-get install -y gettext
