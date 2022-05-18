@@ -25,7 +25,7 @@ sudo apt-get install -y gettext
 edit before use:
 
 ```sh
-export APPNAME="[chose APP name]"
+export APPNAME="[choose APP name]"
 export PROJECTID="[Your ProjectId from Rancher web]"
 export CLOUDFLARED_TOKEN="[CreateTunnelZeroTrust before]"
 ```
