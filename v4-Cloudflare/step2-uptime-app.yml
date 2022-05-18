@@ -1,46 +1,3 @@
-apiVersion: cert-manager.io/v1
-kind: Issuer
-metadata:
-  name: letsencrypt-staging
-  namespace: uptime-${APPNAME}
-spec:
-  acme:
-    # The ACME server URL
-    server: https://acme-staging-v02.api.letsencrypt.org/directory
-    # Email address used for ACME registration
-    email: ${MYEMAIL}
-    # Name of a secret used to store the ACME account private key
-    privateKeySecretRef:
-      name: letsencrypt-staging
-    # Enable the HTTP-01 challenge provider
-    solvers:
-    # An empty 'selector' means that this solver matches all domains
-    - selector: {}
-      http01:
-        ingress:
-          class: nginx
-
----
-apiVersion: cert-manager.io/v1
-kind: Issuer
-metadata:
-  name: letsencrypt-prod
-  namespace: uptime-${APPNAME}
-spec:
-  acme:
-    # The ACME server URL
-    server: https://acme-v02.api.letsencrypt.org/directory
-    # Email address used for ACME registration
-    email: ${MYEMAIL}
-    # Name of a secret used to store the ACME account private key
-    privateKeySecretRef:
-      name: letsencrypt-prod
-    # Enable the HTTP-01 challenge provider
-    solvers:
-    - http01:
-        ingress:
-          class: nginx
----
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -53,6 +10,7 @@ spec:
     requests:
       storage: 10Gi
   storageClassName: longhorn
+
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -82,7 +40,7 @@ spec:
           protocol: TCP
         resources:
           requests:
-            cpu: 50m
+            cpu: 100m
             memory: 16Mi
           limits:
             cpu: 2000m
@@ -117,29 +75,3 @@ spec:
   selector:
     workload.user.cattle.io/workloadselector: apps.deployment-uptime-${APPNAME}
   type: ClusterIP
----
-#apiVersion: networking.k8s.io/v1
-#kind: Ingress
-#metadata:
-#  annotations:
-#  # recommnet test with staging before prodution certificate
-#    cert-manager.io/issuer: letsencrypt-${CERTSTATE}
-#  name: ingress-${APPNAME}
-#  namespace: uptime-${APPNAME}
-#spec:
-#  ingressClassName: nginx
-#  rules:
-#  - host: ${APPNAME}.3.ipv9.xyz
-#    http:
-#      paths:
-#      - backend:
-#          service:
-#            name: ${APPNAME}
-#            port:
-#              number: 3001
-#        path: /
-#        pathType: Prefix
-#  tls:
-#  - hosts:
-#    - ${APPNAME}.3.ipv9.xyz
-#    secretName: ${APPNAME}-3-ipv9-xyz-${CERTSTATE}-tls
