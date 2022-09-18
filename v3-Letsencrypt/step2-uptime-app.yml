@@ -51,7 +51,7 @@ spec:
   - ReadWriteMany
   resources:
     requests:
-      storage: 10Gi
+      storage: 3Gi
   storageClassName: longhorn
 ---
 apiVersion: apps/v1
