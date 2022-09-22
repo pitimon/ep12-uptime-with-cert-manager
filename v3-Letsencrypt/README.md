@@ -1,6 +1,6 @@
 Uptime kuma deployment v3 for:
 
-- Cluster POP22's member
+- Cluster "master" member
 - Ubuntu/Debian kubuctl client
 - [hostname].3.ipv9.xyz via external layer 4 loadbalance
 
@@ -21,7 +21,7 @@ sudo apt-get install -y gettext
 
 ## Deployment app
 ```sh
-export APPNAME="env102"
+export APPNAME="env101"
 export PROJECTID="c-m-gbms7tbd:p-88qpf"
 export MYEMAIL="ipv9@duck.com"
 export CERTSTATE="staging"
@@ -34,8 +34,8 @@ kubectl rollout status -n uptime-$APPNAME deployment $APPNAME
 ## Remove
 ```sh
 export APPNAME="env101"
-export PROJECTID="c-m-7l8v45x2:p-z5t58"
-export MYEMAIL="ip@en.rmutt.ac.th"
+export PROJECTID="c-m-gbms7tbd:p-88qpf"
+export MYEMAIL="ipv9@duck.com"
 export CERTSTATE="staging"
 envsubst < step2-uptime-app.yml | kubectl delete -f - 
 envsubst < step1-namespace.yml | kubectl delete -f -

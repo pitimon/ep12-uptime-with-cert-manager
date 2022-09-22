@@ -1,13 +1,11 @@
 # ep12-uptime-with-cert-manager
- pop22 usecase
+ Cluster "master"
 
 Prepare: 
 - DNS map host.domain (A record) to Layer4 loadbalance
-    - 202.28.230.84
+    - 202.28.253.3
     - 203.158.118.77
 - if run staging can use hostname on this domain
-    - [hostname].cb9e764d.nip.io
-    - [hostname].ca1ce654.nip.io
     - [hostname].ca1cfd03.nip.io
 
 - Deployment step (now):
