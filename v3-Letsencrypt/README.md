@@ -21,9 +21,9 @@ sudo apt-get install -y gettext
 
 ## Deployment app
 ```sh
-export APPNAME="env101"
-export PROJECTID="c-m-p6n6xndq:p-f8xnj"
-export MYEMAIL="ip@en.rmutt.ac.th"
+export APPNAME="env102"
+export PROJECTID="c-m-gbms7tbd:p-88qpf"
+export MYEMAIL="ipv9@duck.com"
 export CERTSTATE="staging"
 envsubst < step1-namespace.yml | kubectl create -f -
 
